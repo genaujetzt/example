@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import numpy as np
 import tensorflow as tf
 app = Flask(__name__)
-
+model_loaded = tf.keras.models.load_model("venv/titanic_mlp")
 @app.route('/', methods = ["get", "post"])
 def predict():
     message = ""
@@ -11,7 +11,7 @@ def predict():
         pclass = request.form.get('pclass')
         print(age, pclass)
         person = [[float(pclass), float(age), 1., 0., 0., 8.]]
-        model_loaded = tf.keras.models.load_model("venv/titanic_mlp")
+
         pred = model_loaded.predict(person)
         print(pred)
         message = f"Survived with probability {pred[0][0]}"
