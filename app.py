@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import numpy as np
 import tensorflow as tf
 app = Flask(__name__)
-model_loaded = tf.keras.models.load_model("venv/titanic_mlp")
+model_loaded = tf.keras.models.load_model("titanic_mlp")
 @app.route('/', methods = ["get", "post"])
 def predict():
     message = ""
