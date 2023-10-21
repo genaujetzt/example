@@ -3,7 +3,7 @@ import numpy as np
 import tensorflow as tf
 app = Flask(__name__)
 model_loaded = tf.keras.models.load_model("titanic_mlp")
-@app.route('/', methods = ["get", "post"])
+@app.route('/', methods = ["GET", "POST"])
 def predict():
     message = ""
     if request.method == "POST":
@@ -21,5 +21,3 @@ def predict():
 @app.route('/text/')
 def print_text():
     return "<h1>Some text</h1>"
-
-app.run()
