@@ -9,5 +9,3 @@ def print_hello():
 @app.route('/text/')
 def print_text():
     return "<h1>Some text</h1>"
-
-app.run()
